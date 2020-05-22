@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<style type="text/css">
+    .query {
+        word-wrap: break-word;
+        position: -webkit-sticky; position:sticky; top:0;
+    }
+    .map-widget {
+        position: -webkit-sticky; position:sticky; top:0;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="query">
+            <h3>Filters(Query)</h3>
+        <small class="text-mute" style="color:#ccc">
+            {{request.form}}
+        </small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 results">
+            <h3>Result</h3>
+            {% for user in list_of_users %}
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title"> 
+                            <span class="badge badge-pill badge-danger">{{loop.index}}</span> 
+                            {{ user.name }}
+                        </h5>
+                        <p class="card-text">
+                            UUID: {{ user.uuid }}
+                            <br>
+                            <small class="text-mute" style="color: #ccc;">
+                                Weight: {{ user.weight }}
+                            </small>
+                        </p>
+                    </div>
+                </div>
+           {% endfor %}    
+        </div>
+        <div class="col-4">
+            <div class="map-widget">
+                <h3>Map</h3>
+            <iframe src="https://www.google.com/maps/d/embed?mid=1oO7DuCCzGvETVJfD7diWDYBcR86uG8y8" width=100% height="500px"></iframe>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+    
+    

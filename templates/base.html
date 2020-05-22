@@ -1,0 +1,38 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">Application Home</a>
+    <div class=" ">
+        <ul class="navbar-nav ">
+            <li class="nav-item "><a class="nav-link disabled" href="javascript:void(0)">Feature 1</a></li>
+            <li class="nav-item active"><a class="nav-link" href="static/123.html">Feature 2</a></li>
+            <li class="nav-item active">
+                <div class="dropdown">
+                    <input class="dropdown-toggle" placeholder="Search fields" data-toggle="dropdown">
+                    <div class="dropdown-menu">
+                        <!-- removed search form  -->
+                        <form class="px-4 py-3" action="" method="POST"  style="width:800px" novalidate>
+                            {{ form.hidden_tag() }}
+                            <h5>Search for users:</h5>
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    {{ form.uuid.label}}
+                                    {{ form.uuid( type="string", class="form-control") }} 
+                                </div>
+                                <div class="col-md-4">
+                                    {{ form.username.label}}
+                                    {{ form.username( type="string", class="form-control") }} 
+                                </div>                
+                            </div>  
+                            <p>{{ form.submit(class="btn btn-primary") }}  <input class="btn" type="reset"> </p>
+                        </form>
+                    </div>    
+                    </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+
+<h1>Something else, a tag </h1>
